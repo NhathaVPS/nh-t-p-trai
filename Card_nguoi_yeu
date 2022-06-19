@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngày 1</title>
+    <!-- Nhúng thư viện bên ngoài vào -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Thiết kế màu nền trước -->
+    <!-- Sử dụng linear để thiết kế màu xanh từ trái sang phải -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Poppins:wght@100;200&family=Raleway:ital,wght@1,900&display=swap');
+
+        /*Khai báo biến màu*/
+        :root{
+            --primary-color: #4daf54;
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: linear-gradient(to right, #4daf54, #3d8880);
+            height: 100vh;      /*set chiều cao */ 
+            font-family: "Poppins";
+        }
+        /*Thiết kế phần card */
+        .card{
+            margin: 120px auto ;
+            width: 320px;            /*Set chiều rộng*/
+            height: 400px; ;            /*Set chiều rộng*/
+            background-color: #272d40; /*màu nền card*/
+            padding: 20px;          /*padding*/
+            border-radius: 15px;    /*bo góc của card*/
+            color: aliceblue;
+            position: relative; /*Tạo ra 1 viewbox, lấy tọa độ 2D dựa vào vtri tĩnh của chính nó*/
+
+        }
+        /*Trang trí 2 icon*/
+        .card_heart, .card_card{
+            font-size: 25px;
+            position: absolute; /*Tạo ra viewBox, lấy tạo độ dựa vào cha nó, Ở đây mình muốn lấy tọa độ của thẻ Card nên bên trên thẻ Card cần set tọa độ*/
+            left: 20px; 
+            top: 15px;
+            cursor: pointer;
+        }
+        .card_card{
+            left: unset; /*Do bên trên set left rồi nên không set được right nữa nên cần unset left*/
+            right: 20px;
+        }
+        .card_img{
+            width: 50%;
+            left: 80px;
+            margin-left: 25%;
+            height: 45%;
+        }
+        .card_img img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card_title, .card_price{
+            font-size: 25px;
+            font-weight: bold; /*Kiểu chữ đậm*/
+            text-align: center;
+        }
+        .card_title{
+            color: var(--primary-color); /*Gọi biến màu sắc*/
+        }
+        /*Sử dụng tính năng flex*/
+        .card_color, .card_size{
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .card_size span{
+            padding: 5px;
+            background: #dadada;
+            color: black;
+            border-radius: 5px;
+            margin: 0 2px ;
+        }
+        .card_color span{
+            margin: 0px 2px;
+            background: #dadada;
+            color: black;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .card_action button{
+            background: var(--primary-color) ;
+            border-radius: 5px;
+            border: none;
+            outline: none; /*Đường kẻ nằm ngoài border*/
+            font-size: 15px;
+            color: white;
+            padding: 10px 20px; /*Cách trên dưới trái phải*/
+            font-weight: bold;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        .card:hover .card_img{
+            transform: translate(0, -50px) rotate(-20deg) scale(1.5,1.5);
+            /*Dịch chuyển lên 50px, xoay sang trái 20 độ, phóng to 1.5 lần*/
+            transition: 0.5s; /*Hành động hover xảy ra trong 0.5s*/
+        }
+        
+        .card:hover .card_title {
+            transform: scale(0.75, 0.75) ;
+        }
+
+        .card:hover .card_price {
+            transform: scale(0.75, 0.75);
+        }
+        .card:hover .card_size,
+        .card:hover .card_color,
+        .card:hover .card_action {
+            transition-delay: 0.5s;
+            opacity: 1;
+            visibility: visible;
+        }
+        .card_size,
+        .card_color,
+        .card_action {
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s;
+        }
+        .card_action button:hover{
+            transform: scale(0.9);
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card_heart">
+            <i class='bx bx-heart'></i>
+        </div>
+        <div class="card_card">
+            <i class='bx bx-cart-alt'></i>
+        </div>
+        <div class="card_img">
+            <img src="./HaDiBien.jpg" alt="">
+        </div>
+        <div class="card_title">Lê Thu Hà SN: 02</div>
+        <div class="card_price">1B$</div>
+        <div class="card_size">
+            <h4>Size:</h4>
+            <span>84</span>
+            <span>58</span>
+            <span>93</span>
+        </div>
+        <div class="card_color">
+            <h4>Height:</h4>
+            <span class="chieucao">164cm</span>
+        </div>
+        <div class="card_action">
+            <button>Buy Now</button>
+            <button>Add Cart</button>
+        </div>
+        <!-- Kinh nghiệm là thiết kế từ ngoài vào trong -->
+    </div>
+</body>
+</html>
